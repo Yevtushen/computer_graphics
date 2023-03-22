@@ -17,30 +17,50 @@ public class MyApplication extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 400, 250);
 
-        Polygon triangle = new Polygon (200.0, 20.0, 150.0, 120.0, 250.0, 120.0 );
-        root.getChildren().add(triangle);
-        triangle.setFill(Color.WHITE);
-
-        Polyline line = new Polyline(200.0, 20.0, 150.0, 120.0, 250.0, 120.0, 200.0, 20.0);
-        root.getChildren().add(line);
-        line.setStroke(Color.RED);
-        line.setStrokeWidth(7);
-
-        Rectangle base = new Rectangle(195, 124, 15, 100);
-        root.getChildren().add(base);
-
-        Circle redcircle = new Circle(200, 50, 10);
-        root.getChildren().add(redcircle);
-        redcircle.setFill(Color.RED);
-        Circle yellowcircle = new Circle(200, 75, 10);
-        root.getChildren().add(yellowcircle);
-        yellowcircle.setFill(Color.YELLOW);
-        Circle greencircle = new Circle(200, 100, 10);
-        root.getChildren().add(greencircle);
-        greencircle.setFill(Color.GREEN);
+        root.getChildren().add(GetTriangleBase());
+        root.getChildren().add(GetOutline());
+        root.getChildren().add(GetBase());
+        root.getChildren().add(GetRedLight());
+        root.getChildren().add(GetYellowLight());
+        root.getChildren().add(GetGreenLight());
 
         scene.setFill(Color.DIMGREY);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private Polygon GetTriangleBase(){
+        Polygon triangle = new Polygon (200.0, 20.0, 150.0, 120.0, 250.0, 120.0 );
+        triangle.setFill(Color.WHITE);
+        return triangle;
+    }
+
+    private Polyline GetOutline(){
+        Polyline line = new Polyline(200.0, 20.0, 150.0, 120.0, 250.0, 120.0, 200.0, 20.0);
+        line.setStroke(Color.RED);
+        line.setStrokeWidth(7);
+        return line;
+    }
+
+    private Rectangle GetBase(){
+        return new Rectangle(195, 124, 15, 100);
+    }
+
+    private Circle GetRedLight(){
+        Circle light = new Circle(200, 50, 10);
+        light.setFill(Color.RED);
+        return light;
+    }
+
+    private Circle GetYellowLight(){
+        Circle light = new Circle(200, 75, 10);
+        light.setFill(Color.YELLOW);
+        return light;
+    }
+
+    private Circle GetGreenLight(){
+        Circle light = new Circle(200, 100, 10);
+        light.setFill(Color.GREEN);
+        return light;
     }
 }
